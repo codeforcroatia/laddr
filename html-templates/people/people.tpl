@@ -1,7 +1,7 @@
 {extends "designs/site.tpl"}
 
 {block content}
-    <h2>Registered Members</h2>
+    <h2>Članovi ekspertne grupe</h2>
     <ul class="thumbnails members-list">
         {foreach item=Person from=$data}
             <li class="span2">
