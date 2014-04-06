@@ -1,6 +1,6 @@
 {extends "designs/site.tpl"}
 
-{block "title"}Register &mdash; {$dwoo.parent}{/block}
+{block "title"}Registracija &mdash; {$dwoo.parent}{/block}
 
 {block "content"}
     {$User = $data}
@@ -8,10 +8,10 @@
     {strip}
 
         <div class="form-horizontal span6 offset3">
-            <h2>Register with {Laddr::$siteName|escape}!</h2>
+            <h2>Postani član {Laddr::$siteName|escape}!</h2>
 
             {if $User->validationErrors}
-                <h3>There were problems with your submission:</h3>
+                <h3>Našli smo probleme u obrascu:</h3>
                 <ul class="well errors">
                 {foreach item=error key=field from=$User->validationErrors}
                     <li>{$field}: {$error|escape}</li>
@@ -21,43 +21,43 @@
 
             <div class="control-group">
                 <label class="control-label">
-                    First Name
+                    Ime
                 </label>
                 <div class="controls">
-                    <input type="text" name="FirstName" value="{refill field=FirstName}" placeholder="Jenny">
+                    <input type="text" name="FirstName" value="{refill field=FirstName}" placeholder="Ivan">
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">
-                    Last Name
+                    Prezime
                 </label>
                 <div class="controls">
-                    <input type="text" name="LastName" value="{refill field=LastName}" placeholder="Appleseed">
+                    <input type="text" name="LastName" value="{refill field=LastName}" placeholder="Lončar">
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">
-                    Email Address
+                    Email adresa
                 </label>
                 <div class="controls">
-                    <input type="email" name="Email" value="{refill field=Email}" placeholder="civic.hacker@example.com">
+                    <input type="email" name="Email" value="{refill field=Email}" placeholder="civic.hacker@primjer.com">
                     <div class="muted" id="register-privacy">
-                        Email address <strong>will</strong> be visible to other signed-in members.
+                        Tvoja email adresa <strong>biti</strong> će vidljiva drugim prijavljenim članovima.
                     </div>
                 </div>
 
             </div>
             <div class="control-group">
                 <label class="control-label">
-                    Username
+                    Korisničko ime
                 </label>
                 <div class="controls">
-                    <input type="text" name="Username" value="{refill field=Username}" placeholder="CivicHacker">
+                    <input type="text" name="Username" value="{refill field=Username}" placeholder="Nadimak">
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">
-                    Password
+                    Lozinka
                 </label>
                 <div class="controls">
                     <input type="password" name="Password">
@@ -65,7 +65,7 @@
             </div>
             <div class="control-group">
                 <label class="control-label">
-                    Password Confirmation
+                    Ponovi lozinku
                 </label>
                 <div class="controls">
                     <input type="password" name="PasswordConfirm">
@@ -74,8 +74,8 @@
             <div class="control-group">
                 <label class="control-label"></label>
                 <div class="controls">
-                    <input type="submit" class="btn btn-primary submit" value="Create Account"><br/><br/>
-                    <p class="form-hint">Already have an account? <a href="/login">Log in</a></p>
+                    <input type="submit" class="btn btn-primary submit" value="Pošalji"><br/><br/>
+                    <p class="form-hint">Već si registriran član? <a href="/login">Prijavi se</a></p>
                 </div>
             </div>
         </div>
