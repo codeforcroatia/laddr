@@ -1,3 +1,3 @@
-<li><a href="{$.User->getURL()}">View My Profile</a></li>
-<li><a href="/profile">Edit My Profile</a></li>
-<li><a href="/logout">Logout</a></li>
+<li><a href="{$.User->getURL()}">Otvori moj profil</a></li>
+<li><a href="/profile">Uredi moj profil</a></li>
+<li><a href="/logout">Odjava</a></li>
