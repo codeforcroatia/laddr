@@ -1,13 +1,13 @@
 {extends designs/site.tpl}
 
-{block title}Saved {$data->Title|escape} &mdash; Projects &mdash; {$dwoo.parent}{/block}
+{block title}Spremljen {$data->Title|escape} &mdash; Projekt &mdash; {$dwoo.parent}{/block}
 
 {block content}
     {$Project = $data}
 
     {if $Project->isNew}
-        <p>Your project has been created: {projectLink $Project}</p>
+        <p>Tvoj projekt je kreiran: {projectLink $Project}</p>
     {else}
-        <p>Your changes to {projectLink $Project} have been saved.</p>
+        <p>Tvoje promjene na projektu {projectLink $Project} su spremljene.</p>
     {/if}
 {/block}
