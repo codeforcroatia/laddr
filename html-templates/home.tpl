@@ -13,8 +13,8 @@
             <img src="/img/logo.png" class="logo" alt="{Laddr::$siteName|escape}">
             <p>{Laddr::$siteSlogan|escape}</p>
             <p>
-                <a href="{tif $.User ? '/projects' : '/register'}" class="btn btn-primary">Start Hacking</a>
-                <small>or <a href="/mission">Learn More&hellip;</a></small>
+                <a href="{tif $.User ? '/projects' : '/register'}" class="btn btn-primary">Počni hakirati</a>
+                <small>ili <a href="/mission">saznaj više&hellip;</a></small>
             </p>
         </div>
     </div>
@@ -25,13 +25,13 @@
     <nav class="sidebar left">
 
         <section class="tagsSummary projects">
-            <a class="btn btn-success btn-mini pull-right" href="/projects/create">Add project</a>
-            <h4><a href="/projects">Projects <span class="badge badge-info">{$projectsTotal|number_format}</span></a></h4>
+            <a class="btn btn-success btn-mini pull-right" href="/projects/create">Dodaj projekt</a>
+            <h4><a href="/projects">Projekti <span class="badge badge-info">{$projectsTotal|number_format}</span></a></h4>
 
             <header class="btn-group">
-                <a href="#projects-by-tech" class="tagFilter active btn btn-mini" data-group="byTech">by tech</a> |
-                <a href="#projects-by-topic" class="tagFilter btn btn-mini" data-group="byTopic">by topic</a> |
-                <a href="#projects-by-event" class="tagFilter btn btn-mini" data-group="byEvent">by event</a>
+                <a href="#projects-by-tech" class="tagFilter active btn btn-mini" data-group="byTech">po tech</a> |
+                <a href="#projects-by-topic" class="tagFilter btn btn-mini" data-group="byTopic">po tematici</a> |
+                <a href="#projects-by-event" class="tagFilter btn btn-mini" data-group="byEvent">po događaju</a>
             </header>
 
             <ul class="tags nav nav-tabs nav-stacked byTech">
@@ -54,11 +54,11 @@
         </section>
 
         <section class="tagsSummary members">
-            <h4><a href="/people">Members <span class="badge badge-info">{$membersTotal|number_format}</span></a></h4>
+            <h4><a href="/people">Članovi <span class="badge badge-info">{$membersTotal|number_format}</span></a></h4>
 
             <header class="btn-group">
-                <a href="#members-by-tech" class="tagFilter active btn btn-mini" data-group="byTech">by tech</a> |
-                <a href="#members-by-topic" class="tagFilter btn btn-mini" data-group="byTopic">by topic</a>
+                <a href="#members-by-tech" class="tagFilter active btn btn-mini" data-group="byTech">po tech</a> |
+                <a href="#members-by-topic" class="tagFilter btn btn-mini" data-group="byTopic">po tematici</a>
             </header>
 
             <ul class="tags nav nav-tabs nav-stacked byTech">
@@ -77,29 +77,29 @@
         {include includes/home.resources.tpl}
 
         {*
-        <a href="#"><h5>Events (108)</h5></a>
+        <a href="#"><h5>Događaji (108)</h5></a>
         <ul>
-            <li><a href="#">Workshops (100/3)</h3></a></li>
-            <li><a href="#">Hackathons (10/4)</h3></a></li>
-            <li><a href="#">Social (6/3)</h3></a></li>
+            <li><a href="#">Radionice (100/3)</h3></a></li>
+            <li><a href="#">Hackathoni (10/4)</h3></a></li>
+            <li><a href="#">Druženja (6/3)</h3></a></li>
         </ul>
         <h6><a href="#">event count</a> | <a href="#">next closest</a></h6>
 
-        <a href="#"><h5>Help Wanted (10)</h5></a>
+        <a href="#"><h5>Potrebna pomoć (10)</h5></a>
         <ul>
             <li><a href="#">PHP (1)</a></li>
             <li><a href="#">JS (2)</a></li>
             <li><a href="#">Python (100)</a></li>
             <li><a href="#">Rails (42)</a></li>
         </ul>
-        <h6><a href="#">job count</a> | <a href="#">by tech</a></h6>
+        <h6><a href="#">job count</a> | <a href="#">po tech</a></h6>
 
-        <a href="#"><h5>Help Offered</h5></a>
+        <a href="#"><h5>Ponuđena pomoć</h5></a>
         <ul>
             <li><a href="#">Django (2)</a></li>
             <li><a href="#">Node.js (1)</a></li>
         </ul>
-        <h6><a href="#">job count</a> | <a href="#">by tech</a></h6>
+        <h6><a href="#">job count</a> | <a href="#">po tech</a></h6>
         *}
     </nav>
 
@@ -158,16 +158,16 @@
 
     <section class="content fixed-fixed">
         <section>
-            <h2>Latest Project Updates</h3>
+            <h2>Posljednja ažuriranja projekata</h3>
             <div class="row-fluid">
 
                 {foreach item=Update from=$updates}
                     {projectUpdate $Update headingLevel=h3 showProject=true}
                 {foreachelse}
-                    <em>No project updates have been posted on this site yet</em>
+                    <em>Još nema ažuriranja</em>
                 {/foreach}
 
-                <a href="/project-updates">Browse all project updates&hellip;</a>
+                <a href="/project-updates">Potraži sva ažuriranja projekata&hellip;</a>
 
             </div> <!-- .row-fluid -->
         </section>
