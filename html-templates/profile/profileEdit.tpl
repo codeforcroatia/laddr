@@ -1,6 +1,6 @@
 {extends "designs/site.tpl"}
 
-{block "title"}Edit Profile &mdash; {$dwoo.parent}{/block}
+{block "title"}Uredi profil &mdash; {$dwoo.parent}{/block}
 
 {block js-bottom}
     {$dwoo.parent}
@@ -11,26 +11,26 @@
 {/block}
 
 {block "content"}
-    <h1>Manage Your Profile</h1>
+    <h1>Uredi svoj profil</h1>
     <hr class="clear" />
 
     {if $.get.status == 'photoUploaded'}
-        <p class="status highlight">Photo uploaded.</p>
+        <p class="status highlight">Fotografija je uplodana.</p>
     {elseif $.get.status == 'photoPrimaried'}
-        <p class="status highlight">Default photo selected.</p>
+        <p class="status highlight">Zadana fotografija je postavljena.</p>
     {elseif $.get.status == 'photoDeleted'}
-        <p class="status highlight">Photo deleted.</p>
+        <p class="status highlight">Fotografija obrisana.</p>
     {elseif $.get.status == 'passwordChanged'}
-        <p class="status highlight">Password changed.</p>
+        <p class="status highlight">Lozinka promijenjena.</p>
     {elseif $.get.status == 'saved'}
-        <p class="status highlight">Profile saved.</p>
+        <p class="status highlight">Profil spremljen.</p>
     {/if}
 
 
     <form id="uploadPhotoForm" class="generic" action="/profile/uploadPhoto" method="POST" enctype="multipart/form-data">
 
         <fieldset class="section">
-            <legend>Photos</legend>
+            <legend>Slike</legend>
             {strip}
             <div class="photosGallery clearfix">
                 {foreach item=Photo from=$.User->Photos}
@@ -43,7 +43,7 @@
                             {else}
                                 <img src="/img/icons/fugue/user-silhouette.png" alt="Default Photo" class="nofade" />Default
                             {/if}</span>
-                            <a href="/profile/deletePhoto?MediaID={$Photo->ID}" alt="Delete Photo" title="Delete Photo" onclick="return confirm('Are you sure you want to delete this photo from your profile?');"><img src="/img/icons/fugue/slash.png" alt="Delete Photo" /></a>
+                            <a href="/profile/deletePhoto?MediaID={$Photo->ID}" alt="Delete Photo" title="Delete Photo" onclick="return confirm('Jesi li siguran da želiš obrisati ovu fotografiju iz svog profila?');"><img src="/img/icons/fugue/slash.png" alt="Delete Photo" /></a>
                         </div>
                     </div>
                 {/foreach}
@@ -54,48 +54,48 @@
                 <input type="file" name="photoFile" id="photoFile">
             </div>
             <div class="submit">
-                <input type="submit" class="submit inline" value="Upload New Photo">
+                <input type="submit" class="submit inline" value="Uplodaj novu forografiju">
             </div>
         </fieldset>
     </form>
 
     <form method="POST" id="profileForm" class="generic">
-    <h2 class="legend">Profile Details</h2>
+    <h2 class="legend">Detalji profila</h2>
     <fieldset class="section">
         <legend>Profile details</legend>
         <div class="field">
-            <label for="Location">Location</label>
+            <label for="Location">Mjesto</label>
             <input type="text" class="text" id="Location" name="Location" value="{refill field=Location default=$.User->Location}">
         </div>
 
         <div class="field expand">
-            <label for="about">About</label>
+            <label for="about">O meni</label>
             <textarea id="about" name="About">{refill field=About default=$.User->About}</textarea>
-            <p class="hint">Use <a href="http://daringfireball.net/projects/markdown">Markdown</a> to give your text some style</p>
+            <p class="hint">Koristi <a href="http://daringfireball.net/projects/markdown">Markdown</a> za oblikovanje teksta</p>
         </div>
 
         <div class="field expand">
-            <label for="tagsInput">Personal Tags</label>
-            <input type="text" id="tagsInput" name="tags" placeholder="tech.php, topic.outdoors" value="{refill field=tags default=Tag::getTagsString($.User->Tags)}">
+            <label for="tagsInput">Osobne oznake</label>
+            <input type="text" id="tagsInput" name="tags" placeholder="tech.Ruby, topic.Prijevoz" value="{refill field=tags default=Tag::getTagsString($.User->Tags)}">
         </div>
 
         <div class="submit">
-            <input type="submit" class="submit" value="Save profile">
+            <input type="submit" class="submit" value="Spremi profil">
         </div>
 
     </fieldset>
 
 
-    <h2 class="legend">Contact Information</h2>
+    <h2 class="legend">Kontakt informacije</h2>
     <fieldset class="section">
-        <legend>Contact information</legend>
+        <legend>Kontakt informacije</legend>
         <div class="field">
             <label for="Email">Email</label>
             <input type="email" class="text" id="Email" name="Email" value="{refill field=Email default=$.User->Email}">
         </div>
 
         <div class="field">
-            <label for="Phone">Phone</label>
+            <label for="Phone">Telefon</label>
             <input type="tel" class="text" id="Phone" name="Phone" value="{refill field=Phone default=$.User->Phone modifier=phone}">
         </div>
 
@@ -105,7 +105,7 @@
         </div>
 
         <div class="submit">
-            <input type="submit" class="submit" value="Save profile">
+            <input type="submit" class="submit" value="Spremi profil">
         </div>
 
     </fieldset>
@@ -114,22 +114,22 @@
 
 
     <form action="/profile/password" method="POST" id="passwordForm" class="generic">
-    <h2 class="legend">Change Password</h2>
+    <h2 class="legend">Promijeni lozinku</h2>
     <fieldset class="section">
-        <legend>Change password</legend>
+        <legend>Promijeni lozinku</legend>
         <div class="field">
-            <label for="oldpassword">Old Password</label>
+            <label for="oldpassword">Stara lozinka</label>
             <input type="password" class="text" id="oldpassword" name="OldPassword">
         </div>
         <div class="field">
-            <label for="password">New Password</label>
+            <label for="password">Nova lozinka</label>
             <input type="password" class="text" id="password" name="Password">
             <input type="password" class="text" id="password2" name="PasswordConfirm">
-            <p class="hint">Please type your new password in both boxes above to make sure it is correct.</p>
+            <p class="hint">Napiši svoju novu lozinku u oba polja kako bi bio siguran da si točno upisao.</p>
         </div>
 
         <div class="submit">
-            <input type="submit" class="submit" value="Save new password">
+            <input type="submit" class="submit" value="Spremi novu lozinku">
         </div>
 
     </fieldset>
