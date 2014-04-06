@@ -1,8 +1,8 @@
 <footer class="site">
-    Powered by <a href="http://laddr.io">Laddr</a> &mdash; a <a href="http://codeforphilly.org">Code for Philly</a> project.
-    {*
+    Pokreće <a href="http://laddr.io">Laddr</a> &mdash; projekt grupe <a href="http://codeforphilly.org">Code for Philly</a>.
+    {* comment out *}
     {if $responseID == 'home'}
-        <br>Cover photo by <a href="XXXXXX" target="_blank">XXXXXX</a>.
+        <br>Zahvale <a href="http://www.flickr.com/people/nsarnavka" target="_blank">N-Sarn</a> za fotografiju s naslovnice.
     {/if}
-    *}
+    {* comment out *}
 </footer>
