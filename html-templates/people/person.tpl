@@ -1,6 +1,6 @@
 {extends "designs/site.tpl"}
 
-{block "title"}{$data->FullNamePossessive} Profile &mdash; {$dwoo.parent}{/block}
+{block "title"}Profil: {$data->FullName} &mdash; {$dwoo.parent}{/block}
 
 
 {block "content"}
@@ -8,21 +8,17 @@
 
     <article class="member-profile">
         {avatar $Person size=200}
-        <h2 class="run-in">{$Person->FullName|escape} {if $.User && $Person->ID == $.User->ID}<a href="/profile">edit your profile</a>{/if}</h2>
+        <h2 class="run-in">{$Person->FullName|escape} {if $.User && $Person->ID == $.User->ID}<a href="/profile">uredi svoj profil</a>{/if}</h2>
 
         {if $Person->Location}
             <p class="location"><a href="http://maps.google.com/?q={$Person->Location|escape}" target="_blank">{$Person->Location|escape}</a></p>
         {/if}
 
-        <h3>Last event checkin</h3>
-        {if $Person->LastCheckin}
-            <a href="{RemoteSystems\Meetup::getEventUrl($Person->LastCheckin->MeetupID)}">{$Person->LastCheckin->Created|date_format:'%c'}</a>
-        {else}
-            <p>Never</p>
-        {/if}
+        <h3>Zadnji put viđen</h3>
+        <p>{tif $Person->LastCheckin ? $Person->LastCheckin->OutTime|date_format:'%c' : "Nikada"}</p>
 
         {if $Person->About}
-            <h3>About Me</h3>
+            <h3>O meni</h3>
             <section class="about">
                 {$Person->About|escape|markdown}
             </section>
@@ -30,7 +26,7 @@
 
         {* Only logged-in users can view contact information *}
         {if $.User}
-            <h3>Contact Information</h3>
+            <h3>Kontakt informacije</h3>
             <dl>
                 {if $Person->Email}
                     <dt>Email</dt>
@@ -49,7 +45,7 @@
             </dl>
 
             {if $Person->ProjectMemberships}
-                <dt> My projects </dt>
+                <dt> Moji projekti </dt>
                 {foreach item=Membership from=$Person->ProjectMemberships}
                     <li><a href="{$Membership->Project->getURL()}">{$Membership->Project->Title|escape}</a> &mdash; {projectMemberTitle $Membership}</li>
                 {/foreach}
