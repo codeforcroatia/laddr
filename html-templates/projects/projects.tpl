@@ -1,16 +1,16 @@
 {extends designs/site.tpl}
 
-{block title}Projects &mdash; {$dwoo.parent}{/block}
+{block title}Projekti &mdash; {$dwoo.parent}{/block}
 
 {block content}
     <div class="page-header">
-        <h2>Civic Projects Directory</h2>
+        <h2>Popis civilnih projekata</h2>
         {if $.User}
             <form action="/projects/create">
-                <button class="btn btn-success" type="submit">Add Project&hellip;</button>
+                <button class="btn btn-success" type="submit">Novi projekt&hellip;</button>
             </form>
         {else}
-            <a href="/register" class="btn btn-danger">Register with the Brigade!</a>
+            <a href="/register" class="btn btn-danger">Registriraj se i uključi na projektima!</a>
         {/if}
     </div>
 
@@ -26,18 +26,18 @@
                         <div class="markdown readme">{$Project->README|escape|markdown}</div>
                     {/if}
                     {if $Project->UsersUrl}
-                        For Users: <a href="{$Project->UsersUrl|escape}">{$Project->UsersUrl|escape}</a>
+                        Za korisnike: <a href="{$Project->UsersUrl|escape}">{$Project->UsersUrl|escape}</a>
                         <br/>
                     {/if}
                     {if $Project->DevelopersUrl}
-                        For Developers: <a href="{$Project->DevelopersUrl|escape}">{$Project->DevelopersUrl|escape}</a>
+                        Za developere: <a href="{$Project->DevelopersUrl|escape}">{$Project->DevelopersUrl|escape}</a>
                     {/if}
                 </div>
             </div>
 
             {if $Project->Memberships}
             <div class="span4">
-                <h3><small>Members</small></h3>
+                <h3><small>Članovi</small></h3>
 
                 <ul class="inline people-list">
                 {foreach item=Membership from=$Project->Memberships}
@@ -54,7 +54,7 @@
                         </a>
                     </li>
                 {foreachelse}
-                    <li class="muted">None registered</li>
+                    <li class="muted">Nema registriranih</li>
                 {/foreach}
                 </ul>
             </div>
