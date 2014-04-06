@@ -1,6 +1,6 @@
 {extends designs/site.tpl}
 
-{block title}{if $data->isPhantom}Create{else}Edit {$data->Title|escape}{/if} &mdash; Projects &mdash; {$dwoo.parent}{/block}
+{block title}{if $data->isPhantom}Kreiraj{else}Uredi {$data->Title|escape}{/if} projekt &mdash; {$dwoo.parent}{/block}
 
 {block js-bottom}
     {$dwoo.parent}
@@ -15,15 +15,15 @@
 
     <h2>
         {if $Project->isPhantom}
-            Create new project
+            Kreiraj novi projekt
         {else}
-            Edit project <strong>{$Project->Title|escape}
+            Uredi projekt <strong>{$Project->Title|escape}
         {/if}
     </h2>
 
     {if !$Project->isValid}
     <div class="error well">
-        <strong>There were problems with your entry:</strong>
+        <strong>Našao sam probleme s tvojim obrascem:</strong>
         <ul class="errors">
         {foreach item=error key=field from=$Project->validationErrors}
             <li>{$error}</li>
@@ -35,29 +35,29 @@
 
     <form method="POST" class="form-horizontal">
         <div class="control-group">
-            <label for="field-title" class="control-label">Title:</label>
+            <label for="field-title" class="control-label">Naslov:</label>
             <div class="controls">
-                <input name="Title" id="field-title" placeholder="Train Schedule Analyzer"
+                <input name="Title" id="field-title" placeholder="Vizualizacija incidenata u Zagrebu"
                     value="{refill field=Title default=$Project->Title}" />
             </div>
         </div>
         <div class="control-group">
-            <label for="field-url-users" class="control-label">Users' URL:</label>
+            <label for="field-url-users" class="control-label">Link za korisnike:</label>
             <div class="controls">
                 <input name="UsersUrl" id="field-url-users" placeholder="http://mypublicapp.org"
                  value="{refill field=UsersUrl default=$Project->UsersUrl}"/>
             </div>
         </div>
         <div class="control-group">
-            <label for="field-url-developers" class="control-label">Developers' URL:</label>
+            <label for="field-url-developers" class="control-label">Link za developere:</label>
             <div class="controls">
                 <input name="DevelopersUrl" id="field-url-developers" placeholder="http://github.com/..." value="{refill field=DevelopersUrl default=$Project->DevelopersUrl}"/>
             </div>
         </div>
         <div class="control-group">
-            <label for="tagsInput" class="control-label">Tags:</label>
+            <label for="tagsInput" class="control-label">Oznake:</label>
             <div class="controls">
-                <input id="tagsInput" name="tags" placeholder="tech.php, topic.outdoors" value="{refill field=tags default=Tag::getTagsString($Project->Tags)}"/>
+                <input id="tagsInput" name="tags" placeholder="tech.Ruby, topic.Prijevoz" value="{refill field=tags default=Tag::getTagsString($Project->Tags)}"/>
             </div>
         </div>
         <div class="control-group">
@@ -65,7 +65,7 @@
             <div class="controls">
                 <textarea name="README" class="input-block-level" rows="10">{refill field=README default=$Project->README}</textarea>
                 <br/><br/>
-                <input type="submit" class="btn-small btn" value="{tif $Project->isPhantom ? 'Create Project' : 'Save Changes'}"/>
+                <input type="submit" class="btn-small btn" value="{tif $Project->isPhantom ? 'Kreiraj projekt' : 'Spremi promjene'}"/>
             </div>
         </div>
         </div>
