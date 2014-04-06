@@ -26,8 +26,8 @@
                             </ul>
                         </li>
                     {else}
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Sign up!</a></li>
+                        <li><a href="/login">Prijava</a></li>
+                        <li><a href="/register">Registracija!</a></li>
                     {/if}
                 </ul>
             </div>
