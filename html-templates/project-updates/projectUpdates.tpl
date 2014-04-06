@@ -1,11 +1,11 @@
 {extends designs/site.tpl}
 
-{block title}Project Updates &mdash; {$dwoo.parent}{/block}
+{block title}Ažuriranja projekata &mdash; {$dwoo.parent}{/block}
 {block content}
     <h2>
-        Project Updates
+        Ažuriranja projekata
         {if $Project}
-            in <a href="/projects/{$Project->Handle}">{$Project->Title|escape}</a>
+            u <a href="/projects/{$Project->Handle}">{$Project->Title|escape}</a>
         {/if}
     </h2>
 
