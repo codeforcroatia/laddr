@@ -10,19 +10,19 @@
             <{$headingLevel}>
                 {if Laddr\ProjectUpdatesRequestHandler::checkWriteAccess($Update)}
                     <div class="btn-group pull-right">
-                        <a href="{$Update->getURL()}/edit" class="btn btn-mini">Edit</a>
-                        <a href="{$Update->getURL()}/delete" class="btn btn-mini btn-warning">Delete</a>
+                        <a href="{$Update->getURL()}/edit" class="btn btn-mini">Uredi</a>
+                        <a href="{$Update->getURL()}/delete" class="btn btn-mini btn-warning">Obriši</a>
                     </div>
                 {/if}
                 {if $showProject}
                     <a href="{$Update->Project->getURL()}">{$Update->Project->Title|escape}</a>
                 {/if}
-                <small><a href="{$Update->Project->getURL()}/updates/{$Update->Number}">Update #{$Update->Number}</a></small>
+                <small><a href="{$Update->Project->getURL()}/updates/{$Update->Number}">Novost #{$Update->Number}</a></small>
             </{$headingLevel}>
         {/if}
         <div class="update-body well">
             {$Update->Body|escape|markdown}
-            <p class="muted"><small>Posted on {$Update->Created|date_format:"%c"} by {personLink $Update->Creator avatar=off}</small></p>
+            <p class="muted"><small>Objavljeno dana {$Update->Created|date_format:"%c"} od {personLink $Update->Creator avatar=off}</small></p>
         </div>
     </article>
 {/template}
@@ -35,6 +35,6 @@
     {elseif $Membership->MemberID == $Membership->Project->MaintainerID}
         Maintainer
     {else}
-        Member
+        Član
     {/if}
 {/strip}{/template}
