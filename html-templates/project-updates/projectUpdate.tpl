@@ -1,6 +1,6 @@
 {extends designs/site.tpl}
 
-{block title}Update #{$data->Number|escape} &mdash; {$data->Project->Title|escape} &mdash; {$dwoo.parent}{/block}
+{block title}Ažuriranje #{$data->Number|escape} &mdash; {$data->Project->Title|escape} &mdash; {$dwoo.parent}{/block}
 
 {block content}
     {$Update = $data}
@@ -11,12 +11,12 @@
     <h2>
         {if Laddr\ProjectUpdatesRequestHandler::checkWriteAccess($Update)}
             <div class="btn-group pull-right">
-                <a href="{$Update->getURL()}/edit" class="btn btn-mini">Edit</a>
-                <a href="{$Update->getURL()}/delete" class="btn btn-mini btn-warning">Delete</a>
+                <a href="{$Update->getURL()}/edit" class="btn btn-mini">Uredi</a>
+                <a href="{$Update->getURL()}/delete" class="btn btn-mini btn-warning">Obriši</a>
             </div>
         {/if}
 
-        <a href="{$Project->getURL()}">{$Project->Title|escape}</a> &mdash; <a href="{$updateUrl}">Update #{$Update->Number}</a>
+        <a href="{$Project->getURL()}">{$Project->Title|escape}</a> &mdash; <a href="{$updateUrl}">Novost #{$Update->Number}</a>
     </h2>
 
     <div class="row-fluid">
@@ -25,7 +25,7 @@
         <aside class="twitterstream span4">
             <h3>
                 Twitter mentions
-                <a class="btn btn-mini" href="{RemoteSystems\Twitter::getTweetIntentURL('Check out $Project->TitlePossessive update #$Update->Number!', array(url = $updateUrl))}">Spread the word!</a>
+                <a class="btn btn-mini" href="{RemoteSystems\Twitter::getTweetIntentURL('Pogledaj $Project->TitlePossessive update #$Update->Number!', array(url = $updateUrl))}">Reci svima o ovom projektu!</a>
             </h3>
 
             {twitter query=$updateUrl count=10}
